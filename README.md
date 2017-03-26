@@ -5,11 +5,12 @@ This stores a given distributor and attach the distributor the appropriate place
 #### Parameters
 - name - a comma separated list of names in their proper hierarchy. (Required)
 #### Usage
+```
 - [URL]index.php?request=storeDistributor&name=barathan
 - [URL]index.php?request=storeDistributor&name=barathan,navin
 - [URL]index.php?request=storeDistributor&name=barathan,navin,kavin
 - [URL]index.php?request=storeDistributor&name=barathan,john
-
+```
 #### Drawbacks
 - Need to give the hierarchy, yet could have done this if it is actually from UI as the we can't deviate.
 - Don't look for the duplicates in the names
@@ -33,8 +34,10 @@ This includes the permission for the given distributors. Handles the hierarchy b
 - ancestors - hierarchy of distributors (parent distributor is enough though) (required except for top distributor)
 - values - a comma separated locations like INDIA-GOA-PANAJI (required)
 #### Usage
+```
 - [URL]index.php?request=includePermissions&name=barathan&values=INDIA,US
 - [URL]index.php?request=includePermissions&name=vignesh&ancestors=barathan&values=US-MA,FRANCE-PARIS,US
+```
 #### Drawbacks
 - Currently don't check the given location is a valid one as per the list of cities given in the problem.
 - If the includes or excludes list of the parent changes this can't  handle.
@@ -63,8 +66,9 @@ This excludes the permission of a distributor. For this the given location must 
 - values - a comma separated list of locations (required)
 
 #### Usage
+```
 - [URL]index.php?request=excludePermission&name=barathan&values=INDIA-PUNJAB,INDIA-JHARKHAND-RANCHI
-	
+```	
 #### JSON Tree Structure
 ```
 {
