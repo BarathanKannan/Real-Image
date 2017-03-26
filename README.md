@@ -5,10 +5,10 @@ This stores a given distributor and attach the distributor the appropriate place
 #### Parameters
 - name - a comma separated list of names in their proper hierarchy. (Required)
 #### Usage
-- [URL]/storeDistributor?name=barathan
-- [URL]/storeDistributor?name=barathan,navin
-- [URL]/storeDistributor?name=barathan,navin,kavin
-- [URL]/storeDistributor?name=barathan,john
+- [URL]index.php?request=storeDistributor&name=barathan
+- [URL]index.php?request=storeDistributor&name=barathan,navin
+- [URL]index.php?request=storeDistributor&name=barathan,navin,kavin
+- [URL]index.php?request=storeDistributor&name=barathan,john
 
 #### Drawbacks
 - Need to give the hierarchy, yet could have done this if it is actually from UI as the we can't deviate.
@@ -33,8 +33,8 @@ This includes the permission for the given distributors. Handles the hierarchy b
 - ancestors - hierarchy of distributors (parent distributor is enough though) (required except for top distributor)
 - values - a comma separated locations like INDIA-GOA-PANAJI (required)
 #### Usage
-- [URL]/includePermissions?name=barathan&values=INDIA,US
-- [URL]/includePermissions?name=vignesh&ancestors=barathan&values=US-MA,FRANCE-PARIS,US
+- [URL]index.php?request=includePermissions&name=barathan&values=INDIA,US
+- [URL]index.php?request=includePermissions&name=vignesh&ancestors=barathan&values=US-MA,FRANCE-PARIS,US
 #### Drawbacks
 - Currently don't check the given location is a valid one as per the list of cities given in the problem.
 - If the includes or excludes list of the parent changes this can't  handle.
@@ -63,7 +63,7 @@ This excludes the permission of a distributor. For this the given location must 
 - values - a comma separated list of locations (required)
 
 #### Usage
-- [URL]/excludePermission?name=barathan&values=INDIA-PUNJAB,INDIA-JHARKHAND-RANCHI
+- [URL]index.php?request=excludePermission&name=barathan&values=INDIA-PUNJAB,INDIA-JHARKHAND-RANCHI
 	
 #### JSON Tree Structure
 ```
@@ -92,22 +92,22 @@ This excludes the permission of a distributor. For this the given location must 
 ## Other helper APIs
 #### getDistributorsJSON 
 	Gives the JSON tree of the distributors
-	[URL]/getDistributorsJSON
+	[URL]index.php?request=getDistributorsJSON
 #### getCountries
 	Gets the list of countries from the given cities.csv
-	[URL]/getCountries
+	[URL]index.php?request=getCountries
 #### getProvinces
 	Gives the list of provinces for the given country
-	[URL]/getProvinces?country=IN
+	[URL]index.php?request=getProvinces&country=IN
 #### getCities
 	Gives the list of cities for the given province and city
-	[URL]/getCities?country=IN&province=TN
+	[URL]index.php?request=getCities&country=IN&province=TN
 #### removeAllDistributors
 	Removes all the distributors stored
-	[URL]/removeAllDistributors
+	[URL]index.php?request=removeAllDistributors
 #### removeAllPermissions
 	Removes all the permissions stored
-	[URL]/removeAllPermissions
+	[URL]index.php?request=removeAllPermissions
 #### getAllPermissions
 	Gives all the permissions of  all the distributors
-	[URL]/getAllPermissions
+	[URL]index.php?request=getAllPermissions
